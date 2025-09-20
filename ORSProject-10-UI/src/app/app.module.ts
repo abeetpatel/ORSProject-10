@@ -9,10 +9,22 @@ import { HttpServiceService } from './http-service.service';
 import { EndpointServiceService } from './endpoint-service.service';
 import { AuthServiceService } from './auth-service.service';
 import { ServiceLocatorService } from './service-locator.service';
+import { SignupComponent } from './login/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user/user-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SignupComponent,
+    DashboardComponent,
+    NavbarComponent,
+    LoginComponent,
+    UserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
