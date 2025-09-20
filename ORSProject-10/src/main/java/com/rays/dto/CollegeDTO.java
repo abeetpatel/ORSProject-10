@@ -76,4 +76,8 @@ public class CollegeDTO extends BaseDTO {
 	public String getLabel() {
 		return "Name";
 	}
+
+	public String getValue() {
+		return name;
+	}
 }

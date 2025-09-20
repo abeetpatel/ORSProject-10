@@ -111,4 +111,8 @@ public class TimeTableDTO extends BaseDTO {
 	public String getLabel() {
 		return null;
 	}
+
+	public String getValue() {
+		return null;
+	}
 }

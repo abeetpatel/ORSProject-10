@@ -166,4 +166,9 @@ public class FacultyDTO extends BaseDTO {
 	public String getLabel() {
 		return "Email";
 	}
+
+	@Override
+	public String getValue() {
+		return firstName+" "+lastName;
+	}
 }
