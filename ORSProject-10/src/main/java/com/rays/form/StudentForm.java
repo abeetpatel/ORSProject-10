@@ -25,6 +25,9 @@ public class StudentForm extends BaseForm {
 
 	@NotEmpty(message = "please enter phone no")
 	private String phoneNo;
+	
+	@NotEmpty(message = "please enter gender")
+	private String gender;
 
 	@NotEmpty(message = "please enter email")
 	private String email;

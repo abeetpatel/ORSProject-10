@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SubjectComponent extends BaseCtl{
 
   constructor(public locator:ServiceLocatorService, route:ActivatedRoute){
-    super(locator.endpoints.subject, locator, route);
+    super(locator.endpoints.SUBJECT, locator, route);
   }
 
 }

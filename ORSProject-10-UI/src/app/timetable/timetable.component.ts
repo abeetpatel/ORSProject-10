@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TimetableComponent extends BaseCtl{
 
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute){
-    super(locator.endpoints.timetable, locator, route);
+    super(locator.endpoints.TIMETABLE, locator, route);
   }
 
 }

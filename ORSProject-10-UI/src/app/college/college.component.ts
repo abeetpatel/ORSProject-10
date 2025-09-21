@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CollegeComponent extends BaseCtl{
 
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute){
-    super(locator.endpoints.college, locator, route);
+    super(locator.endpoints.COLLEGE, locator, route);
   }
 
 }

@@ -16,7 +16,7 @@
         <tr>
             <th align="left">Roll No<span style="color: red">*</span></th>
             <td>
-                <input type="text" name="rollNo" [(ngModel)]="form.data.rollNo" maxlength="5" placeholder="Enter Roll No.">
+                <input type="text" name="rollNo" [(ngModel)]="form.data.rollNo" maxlength="6" placeholder="Enter Roll No.">
             </td>
             <td style="position: fixed; color: red;">{{form.inputerror.rollNo}}</td>
         </tr>
@@ -60,7 +60,7 @@
             <th></th>
             <td align="left" colspan="2">
                 <button (click)="submit()">save</button> &nbsp;
-                <button>Reset</button>
+                <button><a href="/marksheet">Reset</a></button>
             </td>
         </tr>
     </table>

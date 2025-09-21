@@ -16,10 +16,10 @@
     
     <table>
          <tr>
-            <th align="left">Enrol No.<span style="color: red">*</span></th>
-            <td><input type="text" name="enrolNo" [(ngModel)]="form.data.enrolNo" placeholder="Enter enrolNo ">
+            <th align="left">Enroll No.<span style="color: red">*</span></th>
+            <td><input type="text" name="enrollNo" [(ngModel)]="form.data.enrollNo" placeholder="Enter enroll No ">
             </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.enrolNo}}</td>
+            <td style="position: fixed; color: red;">{{form.inputerror.enrollNo}}</td>
         </tr>
 
         <tr>
@@ -47,7 +47,7 @@
             <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
         </tr>
 
-        <tr>
+       <tr>
             <th align="left">Gender<span style="color: red">*</span></th>
             <td>
                 <select name="gender" [(ngModel)]="form.data.gender">
@@ -86,7 +86,7 @@
             <th></th>
             <td align="left" colspan="2">
                 <button (click)="submit()">save</button> &nbsp;
-                <button>Reset</button>
+                <button><a href="/student">Reset</a></button>
             </td>
         </tr>
     </table>
