@@ -4,14 +4,14 @@ import { BaseCtl } from '../base.component';
 import { ServiceLocatorService } from '../service-locator.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-role',
+  templateUrl: './role.component.html',
+  styleUrls: ['./role.component.css']
 })
-export class UserComponent extends BaseCtl {
+export class RoleComponent extends BaseCtl {
 
   constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
-    super(locator.endpoints.USER, locator, route);
+    super(locator.endpoints.ROLE, locator, route);
   }
 
 }

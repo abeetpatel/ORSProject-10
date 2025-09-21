@@ -18,7 +18,7 @@ import com.rays.service.StudentServiceInt;
 @RestController
 @RequestMapping("Student")
 public class StudentCtl extends BaseCtl<StudentForm, StudentDTO, StudentServiceInt> {
-	
+
 	@Autowired
 	private CollegeServiceInt collegeService;
 

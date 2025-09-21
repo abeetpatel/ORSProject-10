@@ -8,7 +8,7 @@ export class EndpointServiceService {
  
   constructor() { }
 
-  public SERVER_URL = "http://localhost:8084";
+  public SERVER_URL = "http://localhost:8080";
   public ROLE = this.SERVER_URL + "/Role";
   public USER = this.SERVER_URL + "/User";
   public COLLEGE = this.SERVER_URL + "/College";
