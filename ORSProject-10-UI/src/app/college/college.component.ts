@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-college',
   templateUrl: './college.component.html',
-  styleUrls: ['./college.component.css']
+  
 })
 export class CollegeComponent extends BaseCtl{
 

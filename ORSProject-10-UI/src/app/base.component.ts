@@ -9,7 +9,7 @@ import { ActivatedRoute } from "@angular/router";
 export class BaseCtl implements OnInit {
 
     public form: any = {
-        error:null, //error 
+        error: false, //error 
         inputerror: {}, // form input error messages
         message: null, //error or success message
         data: { id: null }, //form data
@@ -40,10 +40,17 @@ export class BaseCtl implements OnInit {
     constructor(public endpoint: String, public serviceLocator: ServiceLocatorService, public route: ActivatedRoute) {
         var _self = this;
         _self.initApi(endpoint);
+
+        serviceLocator.getPathVariable(route, function (params: any) {
+            _self.form.data.id = params["id"];
+        })
     }
 
     ngOnInit(): void {
         this.preload();
+        if (this.form.data.id && this.form.data.id > 0) {
+            this.display();
+        }
     }
 
     preload() {
@@ -58,6 +65,18 @@ export class BaseCtl implements OnInit {
         });
     }
 
+    display() {
+        var _self = this;
+        this.serviceLocator.httpService.get(_self.api.get + "/" + _self.form.data.id, function (res: any) {
+            if (res.success) {
+                _self.form.data = res.result.data;
+            } else {
+                _self.form.error = true;
+                _self.form.message = res.result.message;
+            }
+        });
+    }
+
     submit() {
         var _self = this;
         this.serviceLocator.httpService.post(this.api.save, this.form.data, function (res: any) {
@@ -65,21 +84,51 @@ export class BaseCtl implements OnInit {
             _self.form.inputerror = {};
 
             if (res.success) {
-                _self.form.error = false;
-                _self.form.message = "Data is saved";
-                if (_self.form.data.id && _self.form.data.id > 0) {
-          _self.form.data.id = res.result.data;
-        } else {
-          _self.form.data.id = 0;
-        }
-    } else {
+                _self.form.message = res.result.message;
+                _self.form.data.id = res.result.data;
+            } else {
                 _self.form.error = true;
                 if (res.result.inputerror) {
-          _self.form.inputerror = res.result.inputerror;
-        }
-        _self.form.message = res.result.message;
-      }
-            _self.form.data.id = res.result.data;
+                    _self.form.inputerror = res.result.inputerror;
+                }
+                _self.form.message = res.result.message;
+            }
         });
+    }
+
+    search() {
+        var _self = this;
+        this.serviceLocator.httpService.post(_self.api.search + "/" + _self.form.pageNo, _self.form.searchParams, function (res: any) {
+            if (res.success) {
+                _self.form.error = false;
+                _self.form.message = '';
+                _self.form.list = res.result.data;
+            } else {
+                _self.form.error = true;
+                _self.form.message = res.result.message;
+            }
+        });
+    }
+
+    deleteMany(id: any) {
+        var _self = this;
+        this.serviceLocator.httpService.post(_self.api.deleteMany + "/" + id, this.form.data, function (res: any) {
+            if (res.success) {
+                _self.form.message = res.result.message;
+                _self.form.pageNo = 0;
+                _self.search();
+            } else {
+                _self.form.error = true;
+                _self.form.message = res.result.message;
+            }
+        });
+    }
+
+    forward(page: any) {
+        this.serviceLocator.forward(page);
+    }
+
+    reset() {
+        location.reload();
     }
 }
