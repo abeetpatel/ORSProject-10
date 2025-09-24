@@ -12,9 +12,9 @@
         <tr>
             <td align="center">
                 <label><b>Role: </b></label>
-                <select name="id" [(ngModel)]="form.searchParams.id" style="width: 165px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
+                <select name="id" [(ngModel)]="form.searchParams.name" style="width: 165px;">
+                    <option value="">------------Select------------</option>
+                    <option *ngFor="let obj of form.preload.roleList" [value]="obj.value">{{obj.value}}</option>
                 </select>&nbsp;
 
                 <button (click)="search()">search</button>

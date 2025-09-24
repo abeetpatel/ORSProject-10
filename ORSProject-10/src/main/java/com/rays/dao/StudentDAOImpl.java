@@ -37,16 +37,19 @@ public class StudentDAOImpl extends BaseDAOImpl<StudentDTO> implements StudentDA
 		List<Predicate> whereCondition = new ArrayList<Predicate>();
 
 		if (!isEmptyString(dto.getFirstName())) {
-			whereCondition.add(builder.like(qRoot.get("firstName"), dto.getFirstName()));
+			whereCondition.add(builder.like(qRoot.get("firstName"), dto.getFirstName()+"%"));
 		}
 		if (!isEmptyString(dto.getLastName())) {
-			whereCondition.add(builder.like(qRoot.get("lastName"), dto.getLastName()));
+			whereCondition.add(builder.like(qRoot.get("lastName"), dto.getLastName()+"%"));
 		}
 		if (!isEmptyString(dto.getEnrollNo())) {
-			whereCondition.add(builder.like(qRoot.get("enrollNo"), dto.getEnrollNo()));
+			whereCondition.add(builder.like(qRoot.get("enrollNo"), dto.getEnrollNo()+"%"));
 		}
 		if (!isEmptyString(dto.getEmail())) {
-			whereCondition.add(builder.like(qRoot.get("email"), dto.getEmail()));
+			whereCondition.add(builder.like(qRoot.get("email"), dto.getEmail()+"%"));
+		}
+		if (!isEmptyString(dto.getCollegeName())) {
+			whereCondition.add(builder.like(qRoot.get("collegeName"), "%" + dto.getCollegeName().toLowerCase() + "%"));
 		}
 
 		return whereCondition;

@@ -28,7 +28,7 @@ public class TimeTableDAOImpl extends BaseDAOImpl<TimeTableDTO> implements TimeT
 		List<Predicate> whereCondition = new ArrayList<Predicate>();
 
 		if (!isEmptyString(dto.getCourseName())) {
-			whereCondition.add(builder.like(qRoot.get("courseName"), dto.getCourseName()));
+			whereCondition.add(builder.like(qRoot.get("courseName"), "%"+dto.getCourseName().toLowerCase()+"%"));
 		}
 		if (!isEmptyString(dto.getSubjectName())) {
 			whereCondition.add(builder.like(qRoot.get("subjectName"), dto.getSubjectName()));
@@ -36,6 +36,7 @@ public class TimeTableDAOImpl extends BaseDAOImpl<TimeTableDTO> implements TimeT
 		if (!isEmptyString(dto.getDescription())) {
 			whereCondition.add(builder.like(qRoot.get("description"), dto.getDescription()));
 		}
+		System.out.println(">>> Inside getWhereClause, courseName = " + dto.getCourseName());
 
 		return whereCondition;
 	}
@@ -50,7 +51,7 @@ public class TimeTableDAOImpl extends BaseDAOImpl<TimeTableDTO> implements TimeT
 
 		CourseDTO courseDto = courseData.findByPK(dto.getCourseId(), userContext);
 		SubjectDTO subjectDto = subjectData.findByPK(dto.getSubjectId(), userContext);
-		if (courseDto != null) {
+		if (courseDto != null && isEmptyString(dto.getCourseName())) {
 			dto.setCourseName(courseDto.getName());
 		}
 		if (subjectDto != null) {

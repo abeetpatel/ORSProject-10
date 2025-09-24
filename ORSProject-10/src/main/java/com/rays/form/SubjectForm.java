@@ -45,8 +45,8 @@ public class SubjectForm extends BaseForm {
 	public BaseDTO getDto() {
 
 		SubjectDTO dto = initDTO(new SubjectDTO());
-
 		dto.setCourseId(courseId);
+		System.out.println("course id => " +dto.getCourseId());
 		dto.setDescription(description);
 		dto.setName(name);
 

@@ -27,7 +27,7 @@ public class MarksheetDAOImpl extends BaseDAOImpl<MarksheetDTO> implements Marks
 		List<Predicate> whereCondition = new ArrayList<Predicate>();
 
 		if (!isEmptyString(dto.getName())) {
-			whereCondition.add(builder.like(qRoot.get("name"), dto.getName()));
+			whereCondition.add(builder.like(qRoot.get("name"), "%"+dto.getName()+"%"));
 		}
 		if (!isEmptyString(dto.getRollNo())) {
 			whereCondition.add(builder.like(qRoot.get("rollNo"), dto.getRollNo()));

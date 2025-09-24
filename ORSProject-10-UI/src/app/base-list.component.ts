@@ -22,9 +22,7 @@ export class BaseListCtl extends BaseCtl {
         this.preload();
         this.search();
     }
-    override search() {
-        throw new Error("Method not implemented.");
-    }
+    
 
     previous() {
         this.isMasterSel = false;

@@ -33,20 +33,20 @@ public class FacultyDTO extends BaseDTO {
 	@Column(name = "email", length = 50)
 	private String email;
 
-	@Column(name = "subject_id", length = 50)
-	private long subjectId;
+	@Column(name = "subject_id")
+	private Long subjectId;
 
 	@Column(name = "subject_name", length = 50)
 	private String subjectName;
 
-	@Column(name = "course_id", length = 50)
-	private long courseId;
+	@Column(name = "course_id")
+	private Long courseId;
 
 	@Column(name = "course_name", length = 50)
 	private String courseName;
 
-	@Column(name = "college_id", length = 50)
-	private long collegeId;
+	@Column(name = "college_id")
+	private Long collegeId;
 
 	@Column(name = "college_name", length = 50)
 	private String collegeName;
@@ -107,11 +107,11 @@ public class FacultyDTO extends BaseDTO {
 		this.email = email;
 	}
 
-	public long getSubjectId() {
+	public Long getSubjectId() {
 		return subjectId;
 	}
 
-	public void setSubjectId(long subjectId) {
+	public void setSubjectId(Long subjectId) {
 		this.subjectId = subjectId;
 	}
 
@@ -123,11 +123,11 @@ public class FacultyDTO extends BaseDTO {
 		this.subjectName = subjectName;
 	}
 
-	public long getCourseId() {
+	public Long getCourseId() {
 		return courseId;
 	}
 
-	public void setCourseId(long courseId) {
+	public void setCourseId(Long courseId) {
 		this.courseId = courseId;
 	}
 
@@ -139,11 +139,11 @@ public class FacultyDTO extends BaseDTO {
 		this.courseName = courseName;
 	}
 
-	public long getCollegeId() {
+	public Long getCollegeId() {
 		return collegeId;
 	}
 
-	public void setCollegeId(long collegeId) {
+	public void setCollegeId(Long collegeId) {
 		this.collegeId = collegeId;
 	}
 

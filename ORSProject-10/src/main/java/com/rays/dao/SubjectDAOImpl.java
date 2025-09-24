@@ -39,6 +39,8 @@ public class SubjectDAOImpl extends BaseDAOImpl<SubjectDTO> implements SubjectDA
 	protected void populate(SubjectDTO dto, UserContext userContext) {
 
 		CourseDTO courseDto = courseData.findByPK(dto.getCourseId(), userContext);
+		
+		System.out.println("IN Subjectdaoint course id => "+courseDto.getId());
 
 		if (courseDto != null) {
 			dto.setCourseName(courseDto.getName());

@@ -13,9 +13,11 @@ public class TimeTableForm extends BaseForm {
 
 	@NotNull(message = "please enter subject id")
 	private Long subjectId;
-
+	private String subjectName;
+	
 	@NotNull(message = "please enter course id")
 	private Long courseId;
+	private String courseName;
 
 	@NotNull(message = "please enter exam date")
 	private Date examDate;
@@ -28,6 +30,22 @@ public class TimeTableForm extends BaseForm {
 
 	@NotEmpty(message = "please enter examTime")
 	private String examTime;
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
 
 	public Date getExamDate() {
 		return examDate;
@@ -82,11 +100,15 @@ public class TimeTableForm extends BaseForm {
 		TimeTableDTO dto = initDTO(new TimeTableDTO());
 
 		dto.setCourseId(courseId);
+		dto.setCourseName(courseName);
 		dto.setDescription(description);
 		dto.setExamDate(examDate);
 		dto.setExamTime(examTime);
 		dto.setSemester(semester);
 		dto.setSubjectId(subjectId);
+		dto.setSubjectName(subjectName);
+		System.out.println(">>> Search CourseName from form = " + dto.getCourseName());
+
 
 		return dto;
 	}

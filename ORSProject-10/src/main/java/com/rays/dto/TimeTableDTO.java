@@ -12,14 +12,14 @@ import com.rays.common.BaseDTO;
 @Table(name = "st_timetable")
 public class TimeTableDTO extends BaseDTO {
 
-	@Column(name = "subject_id", length = 50)
-	private long subjectId;
+	@Column(name = "subject_id")
+	private Long subjectId;
 
 	@Column(name = "subject_name", length = 50)
 	private String subjectName;
 
-	@Column(name = "course_id", length = 50)
-	private long courseId;
+	@Column(name = "course_id")
+	private Long courseId;
 
 	@Column(name = "course_name", length = 50)
 	private String courseName;
@@ -36,11 +36,11 @@ public class TimeTableDTO extends BaseDTO {
 	@Column(name = "exam_time", length = 50)
 	private String examTime; 
 
-	public long getSubjectId() {
+	public Long getSubjectId() {
 		return subjectId;
 	}
 
-	public void setSubjectId(long subjectId) {
+	public void setSubjectId(Long subjectId) {
 		this.subjectId = subjectId;
 	}
 
@@ -52,11 +52,11 @@ public class TimeTableDTO extends BaseDTO {
 		this.subjectName = subjectName;
 	}
 
-	public long getCourseId() {
+	public Long getCourseId() {
 		return courseId;
 	}
 
-	public void setCourseId(long courseId) {
+	public void setCourseId(Long courseId) {
 		this.courseId = courseId;
 	}
 

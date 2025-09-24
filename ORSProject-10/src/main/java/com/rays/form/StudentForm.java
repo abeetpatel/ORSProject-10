@@ -34,6 +34,16 @@ public class StudentForm extends BaseForm {
 
 	@NotNull(message = "please enter college id")
 	private Long collegeId;
+	
+	private String collegeName;
+
+	public String getCollegeName() {
+		return collegeName;
+	}
+
+	public void setCollegeName(String collegeName) {
+		this.collegeName = collegeName;
+	}
 
 	public String getEnrollNo() {
 		return enrollNo;
@@ -96,6 +106,7 @@ public class StudentForm extends BaseForm {
 		StudentDTO dto = initDTO(new StudentDTO());
 
 		dto.setCollegeId(collegeId);
+		dto.setCollegeName(collegeName);
 		dto.setDob(dob);
 		dto.setEmail(email);
 		dto.setEnrollNo(enrollNo);

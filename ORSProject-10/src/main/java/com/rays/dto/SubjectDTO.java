@@ -13,8 +13,8 @@ public class SubjectDTO extends BaseDTO {
 	@Column(name = "name", length = 50)
 	private String name;
 
-	@Column(name = "course_id", length = 50)
-	private long courseId;
+	@Column(name = "course_id")
+	private Long courseId;
 
 	@Column(name = "course_name", length = 50)
 	private String courseName;
@@ -30,11 +30,11 @@ public class SubjectDTO extends BaseDTO {
 		this.name = name;
 	}
 
-	public long getCourseId() {
+	public Long getCourseId() {
 		return courseId;
 	}
 
-	public void setCourseId(long courseId) {
+	public void setCourseId(Long courseId) {
 		this.courseId = courseId;
 	}
 

@@ -23,6 +23,16 @@ public class MarksheetForm extends BaseForm {
 
 	@NotNull(message = "please enter student id")
 	protected Long studentId;
+	
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public String getRollNo() {
 		return rollNo;
@@ -73,6 +83,7 @@ public class MarksheetForm extends BaseForm {
 		dto.setPhysics(physics);
 		dto.setRollNo(rollNo);
 		dto.setStudentId(studentId);
+		dto.setName(name);
 
 		return dto;
 	}

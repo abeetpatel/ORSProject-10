@@ -35,7 +35,7 @@ public class FacultyDAOImpl extends BaseDAOImpl<FacultyDTO> implements FacultyDA
 			whereCondition.add(builder.like(qRoot.get("lastName"), dto.getLastName()));
 		}
 		if (!isEmptyString(dto.getEmail())) {
-
+			whereCondition.add(builder.like(qRoot.get("email"), dto.getEmail()));
 		}
 
 		return whereCondition;
