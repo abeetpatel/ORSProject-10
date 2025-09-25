@@ -171,4 +171,9 @@ public class FacultyDTO extends BaseDTO {
 	public String getValue() {
 		return firstName+" "+lastName;
 	}
+
+	@Override
+	public String getTableName() {
+		return "Faculty";
+	}
 }

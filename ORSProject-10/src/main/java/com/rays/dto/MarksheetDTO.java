@@ -92,4 +92,9 @@ public class MarksheetDTO extends BaseDTO {
 	public String getValue() {
 		return rollNo;
 	}
+
+	@Override
+	public String getTableName() {
+		return "Marksheet";
+	}
 }

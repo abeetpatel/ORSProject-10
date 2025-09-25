@@ -32,6 +32,9 @@ import { SubjectListComponent } from './subject/subject-list.component';
 import { TimetableListComponent } from './timetable/timetable-list.component';
 import { FacultyListComponent } from './faculty/faculty-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { ChangepasswordComponent } from './user/changepassword.component';
+import { MyprofileComponent } from './user/myprofile.component';
+import { ForgotpasswordComponent } from './login/forgotpassword.component';
 
 
 @NgModule({
@@ -60,7 +63,10 @@ import { FooterComponent } from './footer/footer.component';
     TimetableListComponent,
     FacultyListComponent,
     FooterComponent,
-    
+    ChangepasswordComponent,
+    MyprofileComponent,
+    ForgotpasswordComponent,
+  
   ],
   imports: [
     BrowserModule,

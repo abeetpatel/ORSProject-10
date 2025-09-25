@@ -52,7 +52,7 @@
 
         <tr>
             <th align="left">Exam Date<span style="color: red">*</span></th>
-            <td><input type="date" name="examDate" [(ngModel)]="form.data.examDate" placeholder="Select Exam Date" style="width: 97%;"></td>
+            <td><input type="date" name="examDate" [(ngModel)]="form.data.examDate" [ngModel]="form.data.examDate | date:'yyyy-MM-dd'" placeholder="Select Exam Date" style="width: 97%;"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.examDate}}</td>
         </tr>
 

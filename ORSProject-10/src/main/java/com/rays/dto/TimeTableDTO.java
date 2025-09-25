@@ -101,18 +101,24 @@ public class TimeTableDTO extends BaseDTO {
 	}
 
 	public String getUniqueKey() {
-		return null;
+		return "subjectName";
 	}
 
 	public String getUniqueValue() {
-		return null;
+		return subjectName;
 	}
 
 	public String getLabel() {
-		return null;
+		return "Subject Name";
 	}
 
 	public String getValue() {
 		return null;
 	}
+
+	@Override
+	public String getTableName() {
+		return "TimeTable";
+	}
+
 }

@@ -43,7 +43,7 @@
         <tr align="center" *ngFor="let m of form.list; let i = index">
             <td><input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id" [value]="isMasterSel"></td>
             <td>{{(form.pageNo*5)+i+ 1}}</td>
-            <td>{{m.enrolNo}}</td>
+            <td>{{m.enrollNo}}</td>
             <td>{{m.firstName}}</td>
             <td>{{m.lastName}}</td>
             <td>{{m.dob | date : 'dd-MM-yyyy'}}</td>

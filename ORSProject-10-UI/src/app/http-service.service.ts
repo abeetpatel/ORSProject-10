@@ -12,6 +12,7 @@ export class HttpServiceService {
   }
 
   post(endpoint: any, bean: any, callback: any) {
+    console.log("Inside post")
     return this.httpClient.post(endpoint, bean, { withCredentials: true }).subscribe((data) => {
       callback(data);
     }, (error) => {

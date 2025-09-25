@@ -78,10 +78,15 @@ export class BaseCtl implements OnInit {
     }
 
     submit() {
+        console.log("API URL = ", this.api.save);
+console.log("Payload = ", this.form.data);
+
         var _self = this;
         this.serviceLocator.httpService.post(this.api.save, this.form.data, function (res: any) {
             _self.form.message = '';
             _self.form.inputerror = {};
+
+            console.log("Submit clicked")
 
             if (res.success) {
                 _self.form.message = res.result.message;

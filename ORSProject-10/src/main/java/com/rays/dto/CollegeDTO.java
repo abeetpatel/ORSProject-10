@@ -80,4 +80,10 @@ public class CollegeDTO extends BaseDTO {
 	public String getValue() {
 		return name;
 	}
+
+	@Override
+	public String getTableName() {
+		
+		return "College";
+	}
 }

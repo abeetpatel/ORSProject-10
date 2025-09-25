@@ -8,12 +8,11 @@
         <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
         <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
     </div>
-
     <table>
          <tr>
-            <th align="left">Enrol No.<span style="color: red">*</span></th>
-            <td><input type="text" name="enrolNo" [(ngModel)]="form.data.enrolNo" placeholder="Enter Enrol No"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.enrolNo}}</td>
+            <th align="left">Enroll No.<span style="color: red">*</span></th>
+            <td><input type="text" name="enrollNo" [(ngModel)]="form.data.enrollNo" placeholder="Enter Enroll No"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.enrollNo}}</td>
         </tr>
 
         <tr>
@@ -34,9 +33,9 @@
             <td style="position: fixed; color: red;">{{form.inputerror.email}}</td>
         </tr>
 
-        <tr>
+         <tr>
             <th align="left">Date of Birth<span style="color: red">*</span></th>
-            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" placeholder="Select Date of Birth" style="width: 97%;"></td>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
         </tr>
 
@@ -57,14 +56,12 @@
             <td style="position: fixed; color: red;">{{form.inputerror.phoneNo}}</td>
         </tr>
 
-        <tr></tr>
-
         <tr>
             <th></th>
             <td align="left" colspan="2">
                 <button (click)="submit()">save</button> &nbsp;
                 <button (click)="reset()">reset</button> &nbsp;
-                <button (click)="forward('studentlist')">list</button>
+                <button (click)="forward('/studentlist')">list</button>
             </td>
         </tr>
     </table>

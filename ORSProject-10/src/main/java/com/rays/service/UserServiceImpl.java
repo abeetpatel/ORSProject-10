@@ -21,10 +21,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implem
 	}
 
 	@Override
-	public UserDTO register(UserDTO dto) {
-
-		UserContext userContext = new UserContext();
-		userContext.setLoginId("super@nenosystems.com");
+	public UserDTO register(UserDTO dto, UserContext userContext) {
 
 		Long id = add(dto, userContext);
 
@@ -35,7 +32,9 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implem
 
 	@Override
 	public UserDTO authenticate(String loginId, String password) {
+
 		UserDTO dto = findByLoginId(loginId, null);
+
 		if (dto != null) {
 			UserContext userContext = new UserContext(dto);
 			if (password.equals(dto.getPassword())) {
@@ -49,5 +48,29 @@ public class UserServiceImpl extends BaseServiceImpl<UserDTO, UserDAOInt> implem
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public UserDTO forgotPassword(String loginId) {
+
+		UserDTO dto = findByLoginId(loginId, null);
+		if (dto == null) {
+			return null;
+		}
+		return dto;
+	}
+
+	@Override
+	public UserDTO changePassword(String loginId, String oldPassword, String newPassword, UserContext userContext) {
+
+		UserDTO dto = findByLoginId(loginId, null);
+
+		if (dto != null && oldPassword.equals(dto.getPassword())) {
+			dto.setPassword(newPassword);
+			update(dto, userContext);
+			return dto;
+		} else {
+			return null;
+		}
 	}
 }

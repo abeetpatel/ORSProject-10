@@ -1,5 +1,7 @@
 package com.rays.common;
 
+import java.sql.Date;
+
 public class BaseForm {
 
 	protected Long id;
@@ -8,9 +10,9 @@ public class BaseForm {
 
 	protected String modifiedBy;
 
-	protected long createdDatetime;
+	protected Date createdDatetime;
 
-	protected long modifiedDatetime;
+	protected Date modifiedDatetime;
 
 	private Long[] ids;
 
@@ -44,19 +46,19 @@ public class BaseForm {
 		this.modifiedBy = modifiedBy;
 	}
 
-	public long getCreatedDatetime() {
+	public Date getCreatedDatetime() {
 		return createdDatetime;
 	}
 
-	public void setCreatedDatetime(long createdDatetime) {
+	public void setCreatedDatetime(Date createdDatetime) {
 		this.createdDatetime = createdDatetime;
 	}
 
-	public long getModifiedDatetime() {
+	public Date getModifiedDatetime() {
 		return modifiedDatetime;
 	}
 
-	public void setModifiedDatetime(long modifiedDatetime) {
+	public void setModifiedDatetime(Date modifiedDatetime) {
 		this.modifiedDatetime = modifiedDatetime;
 	}
 

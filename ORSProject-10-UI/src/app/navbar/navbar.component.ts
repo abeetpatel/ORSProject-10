@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpServiceService } from '../http-service.service';
+import { ServiceLocatorService } from '../service-locator.service';
 
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
- 
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
 
@@ -15,7 +15,9 @@ export class NavbarComponent {
     data: {}
   }
 
-  constructor(private httpService: HttpServiceService, private router: Router) { }
+  constructor(private httpService: HttpServiceService, private router: Router, private servicelocator: ServiceLocatorService) {
+
+  }
 
   isLogin() {
     let check = localStorage.getItem('fname');
@@ -34,5 +36,10 @@ export class NavbarComponent {
       localStorage.clear();
       _self.router.navigateByUrl('login')
     });
+  }
+
+  forward() {
+    this.form.data.userId = localStorage.getItem("userId");
+    this.servicelocator.forward("/myprofile/" + this.form.data.userId);
   }
 }
