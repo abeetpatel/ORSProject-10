@@ -31,7 +31,7 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	JWTUtil jwtUtil = null;
 
 	@PostMapping("login")
-	public ORSResponse login(@RequestBody @Valid LoginForm form, BindingResult bindingResult, HttpSession session,
+	public ORSResponse login(@RequestBody @Valid LoginForm form, BindingResult bindingResult,
 			HttpServletRequest request) throws Exception {
 
 		ORSResponse res = validate(bindingResult);
@@ -47,8 +47,6 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 			res.addMessage("Invalid Login ID & Password");
 		} else {
 			UserContext context = new UserContext(dto);
-
-			session.setAttribute("userContext", context);
 
 			res.setSuccess(true);
 			res.addData(dto);

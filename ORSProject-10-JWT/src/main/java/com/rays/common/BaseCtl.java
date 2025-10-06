@@ -33,8 +33,8 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 	protected UserContext userContext = null;
 
 	@ModelAttribute
-	public void setUserContext(HttpSession session) {
-		userContext = (UserContext) session.getAttribute("userContext");
+	public void setUserContext() {
+		userContext =  UserContextHolder.getContext();
 		if (userContext == null) {
 			UserDTO dto = new UserDTO();
 			dto.setLoginId("root@sunilos.com");
