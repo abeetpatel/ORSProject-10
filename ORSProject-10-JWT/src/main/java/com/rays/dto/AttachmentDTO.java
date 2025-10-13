@@ -27,6 +27,9 @@ public class AttachmentDTO extends BaseDTO {
 	@Column(name = "USER_ID")
 	protected Long userId = null;
 
+	@Column(name = "PATH", length = 500)
+	protected String path = null;
+
 	@Lob
 	@Column(name = "DOC")
 	private byte[] doc;
@@ -87,6 +90,14 @@ public class AttachmentDTO extends BaseDTO {
 
 	public void setDoc(byte[] doc) {
 		this.doc = doc;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 	@Override

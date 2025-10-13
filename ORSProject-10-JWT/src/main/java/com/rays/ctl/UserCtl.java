@@ -103,31 +103,34 @@ public class UserCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 	public ORSResponse uploadPic(@PathVariable Long userId, @RequestParam("file") MultipartFile file,
 			HttpServletRequest req) {
 
-		AttachmentDTO attachmentDto = new AttachmentDTO(file);
+		System.out.println("User ID id --------------" + userId);
 
-		attachmentDto.setDescription("profile pic");
+		UserDTO userDTO = baseService.findById(userId, userContext);
 
-		attachmentDto.setUserId(userId);
+		AttachmentDTO doc = new AttachmentDTO(file);
 
-		UserDTO userDto = baseService.findById(userId, null);
+		doc.setDescription("Profile picture");
+		System.out.println(doc.getDescription() + "description");
 
-		if (userDto.getImageId() != null && userDto.getImageId() > 0) {
+		doc.setPath(req.getServletPath());
+		System.out.println(doc.getPath() + "path-----");
+		doc.setUserId(userId);
+		System.out.println(doc.getUserId() + "id-----");
 
-			attachmentDto.setId(userDto.getImageId());
-
+		if (userDTO.getImageId() != null && userDTO.getImageId() > 0) {
+			doc.setId(userDTO.getImageId());
 		}
-
-		Long imageId = attachmentService.save(attachmentDto, userContext);
-
-		if (userDto.getImageId() == null) {
-
-			userDto.setImageId(imageId);
-
-			baseService.update(userDto, userContext);
+		System.out.println("before calling save");
+		Long imageId = attachmentService.save(doc, userContext);
+		System.out.println("after save");
+		// Update new image id
+		if (userDTO.getImageId() == null || userDTO.getImageId() == 0) {
+			userDTO.setImageId(imageId);
+			baseService.update(userDTO, userContext);
 		}
 
 		ORSResponse res = new ORSResponse();
-
+		res.setSuccess(true);
 		res.addResult("imageId", imageId);
 
 		return res;
